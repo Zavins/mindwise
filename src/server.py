@@ -11,7 +11,7 @@ app = FastAPI()
 
 @app.get("/api")
 async def base():
-    return "NoteWise API"
+    return "MindWise API"
 
 
 @app.post('/api/mindmap')
