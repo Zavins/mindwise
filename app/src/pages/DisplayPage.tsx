@@ -11,12 +11,14 @@ const DisplayPage = () => {
     const {index, query} = useControlStore()
     const {data: mmData, isLoading: mmLoading, isSuccess: mmSuccess, refetch: mmRefetch } = useQuery(
         ['get-markdown-mindmap', query], 
-        getMarkDownMindMap(query)
+        getMarkDownMindMap(query),
+        {enabled: false}
     )
 
     const { data: ndata, isLoading: nLoading, isSuccess: nSuccess, refetch: nRefetch } = useQuery(
         ['get-explanation', query], 
-        getExplanation(query)
+        getExplanation(query),
+        {enabled: false}
     )
 
     useEffect(()=>{
