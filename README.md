@@ -27,3 +27,5 @@ FastAPI, TypeScript, OpenAI, React, Docker
 > \$ npm install
 > \$ npm run build:local
 > \$ npm run server:local
+
+Initial project: https://devpost.com/software/notewise
