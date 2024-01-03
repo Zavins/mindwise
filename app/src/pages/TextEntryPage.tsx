@@ -11,7 +11,7 @@ const BUTTON_GROUPS = [
 ]
 
 const TextEntryPage = () => {
-    const [text, setText] = useState("")
+    const [text, setText] = useState(SNOW_WHITE)
     const { index, setIndex, setQuery } = useControlStore()
     const buttonGroupRef = useRef<Element>()
 
@@ -68,7 +68,6 @@ const TextEntryPage = () => {
                         onChange={(e) => {
                             setText(e.target.value)
                         }}
-                        defaultValue={{ SNOW_WHITE }}
                     />
                     <Box
                         ref={buttonGroupRef}
