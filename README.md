@@ -7,7 +7,7 @@ based on various sources (paper/fiction/slides/etc), NoteWise can:
 - generate easy-to-understand explanations.
 - generate well-structured mind maps with detailed notes.
 
-## How you built it
+## How it's built
 - Utilized Python FastAPI to implement a backend HTTP server and called fine-tuned OpenAI API to generate output text.
 
 - Implemented a dynamic webpage using React.js, realizing text input & output and mind map showcase.
