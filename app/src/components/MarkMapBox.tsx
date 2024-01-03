@@ -4,7 +4,6 @@ import { Transformer } from "markmap-lib"
 import { Markmap } from "markmap-view"
 import { useEffect, useRef } from "react"
 
-
 const transformer = new Transformer()
 
 interface MarkMapProps {
@@ -24,10 +23,9 @@ const MarkMapBox = (props: MarkMapProps) => {
         }
     }, [])
 
-
     useEffect(() => {
         if (refMm.current) {
-            const { root } = transformer.transform(data ? data : "");
+            const { root } = transformer.transform(data ? data : "")
             refMm.current.setData(root)
             refMm.current.fit()
         }
@@ -36,7 +34,7 @@ const MarkMapBox = (props: MarkMapProps) => {
     return (
         <Box width="100%">
             <Paper elevation={5}>
-                {isLoading && <LinearProgress /> }
+                {isLoading && <LinearProgress />}
                 <svg className="mark-map" ref={refSvg} style={{ width: "100%", height: "600px" }} />
             </Paper>
         </Box>
