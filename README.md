@@ -20,3 +20,10 @@ based on various sources (paper/fiction/slides/etc), NoteWise can:
 
 ## Built With
 FastAPI, TypeScript, OpenAI, React, Docker
+
+## How to Run:
+> \$ git pull https//www.github.com/zavins/mindwise
+> \$ cd mindwise/app
+> \$ npm install
+> \$ npm run build:local
+> \$ npm run server:local
