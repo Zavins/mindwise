@@ -2,15 +2,17 @@
 # Authors: Boshe Zhang, Yiqi Xue, Zhiyuan Wang, Ying Sun
 
 from cache import AsyncLRU
-import openai
+from openai import AsyncOpenAI
 import json
 
 with open("./keys/openai.key") as f: 
-    openai.api_key = f.readline()
+    client = AsyncOpenAI(
+        api_key=f.readline().strip(),
+    )
 
 @AsyncLRU(maxsize=128)
 async def get_mind_map(text_data):
-    response = await openai.ChatCompletion.acreate(
+    response = await client.chat.completions.create(
         model="gpt-3.5-turbo-16k",
         temperature=0.2,
         messages=[
@@ -20,14 +22,13 @@ async def get_mind_map(text_data):
         ]
     )
 
-    parsed_data = json.loads(json.dumps(response.choices[0].message))
-    markdown_text = parsed_data['content']
+    markdown_text = response.choices[0].message.content
 
     return markdown_text
 
 @AsyncLRU(maxsize=128)
 async def get_explanation(text_data):
-    response = await openai.ChatCompletion.acreate(
+    response = await client.chat.completions.create(
         model="gpt-3.5-turbo-16k",
         temperature=0.2,
         messages=[
@@ -36,8 +37,6 @@ async def get_explanation(text_data):
             {"role": "user", "content": text_data}
         ]
     )
-
-    parsed_data = json.loads(json.dumps(response.choices[0].message))
-    text = parsed_data['content']
+    text = response.choices[0].message.content
 
     return text
